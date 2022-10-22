@@ -25,7 +25,9 @@ def pregunta_01():
     poly = PolynomialFeatures(degree=2, interaction_only=False, include_bias=True)
 
     # Transforme la columna `x` del dataset `data` usando el objeto `poly`
-    x_poly = poly.fit_transform(data)
+    x_numpy = data["x"].to_numpy()
+    x_numpy = x_numpy.reshape(-1, 1)
+    x_poly = poly.fit_transform(x_numpy)
 
     # Retorne x y y
     return x_poly, data.y

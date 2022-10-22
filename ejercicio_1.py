@@ -28,9 +28,10 @@ def pregunta_01():
 
     # Transforme la columna `x` del dataset `data` usando el objeto `poly`
     #x_poly = poly.___(data[["___"]])
-    data_numpy = data.to_numpy()
+    data_numpy = data["x"].to_numpy()
+    data_numpy = data_numpy.reshape(-1, 1)
     #data_numpy = data_numpy.reshape(1, -1)
-    x_poly = poly.fit_transform(data)
+    x_poly = poly.fit_transform(data_numpy)
 
     # Retorne x y y
     return x_poly, data.y
