@@ -14,6 +14,7 @@ def pregunta_01():
     """
     # Importe pandas
     import pandas as pd
+    import numpy as np
 
     # Importe PolynomialFeatures
     from sklearn.preprocessing import PolynomialFeatures
@@ -22,10 +23,12 @@ def pregunta_01():
     data = pd.read_csv("data.csv")
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
-    poly = PolynomialFeatures(degree=2, interaction_only=False, include_bias=True)
+    #poly = ___.___(___)
+    poly = PolynomialFeatures(2)
 
     # Transforme la columna `x` del dataset `data` usando el objeto `poly`
-    x_poly = poly.fit_transform(data)
+    #x_poly = poly.___(data[["___"]])
+    x_poly = poly.fit_transform(data["x"])
 
     # Retorne x y y
     return x_poly, data.y
