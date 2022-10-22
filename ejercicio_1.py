@@ -14,6 +14,7 @@ def pregunta_01():
     """
     # Importe pandas
     import pandas as pd
+    #import numpy as np
 
     # Importe PolynomialFeatures
     from sklearn.preprocessing import PolynomialFeatures
@@ -22,12 +23,15 @@ def pregunta_01():
     data = pd.read_csv("data.csv")
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
+    #poly = ___.___(___)
     poly = PolynomialFeatures(degree=2, interaction_only=False, include_bias=True)
 
     # Transforme la columna `x` del dataset `data` usando el objeto `poly`
-    x_numpy = data["x"].to_numpy()
-    x_numpy = x_numpy.reshape(-1, 1)
-    x_poly = poly.fit_transform(x_numpy)
+    #x_poly = poly.___(data[["___"]])
+    data_numpy = data["x"].to_numpy()
+    data_numpy = data_numpy.reshape(-1, 1)
+    #data_numpy = data_numpy.reshape(1, -1)
+    x_poly = poly.fit_transform(data_numpy)
 
     # Retorne x y y
     return x_poly, data.y
@@ -46,16 +50,18 @@ def pregunta_02():
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
     params = np.zeros(x_poly.shape[1])
-    
-    for iteracion in range(n_iterations):
+    for i in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
         y_pred = np.dot(x_poly, params)
 
         # Calcule el error
         error = [yt - yp for yt, yp in zip(y, y_pred)]
+        #error = sum(error)
 
         # Calcule el gradiente
+        #gradient = np.array([x_poly[:,0].mean(), x_poly[:,1].mean(), x_poly[:,2].mean()])
+        #gradient = np.array([-1,-x_poly[:,1].sum(),-x_poly[:,2].sum()])
         gradient = -np.sum(np.multiply(x_poly,np.array(error)[:,np.newaxis]),axis=0)
 
         # Actualice los parámetros
