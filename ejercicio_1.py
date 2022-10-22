@@ -63,7 +63,7 @@ def pregunta_02():
         #gradient = np.array([x_poly[:,0].mean(), x_poly[:,1].mean(), x_poly[:,2].mean()])
         #gradient = np.array([-1,-x_poly[:,1].sum(),-x_poly[:,2].sum()])
         gradient = -np.sum(np.multiply(x_poly,np.array(error)[:,np.newaxis]),axis=0)
-        #gradient = -2/2*np.sum(np.multiply(x_poly,error))
+
         # Actualice los parámetros
         params = params - learning_rate * gradient
 
