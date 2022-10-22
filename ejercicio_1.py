@@ -24,11 +24,13 @@ def pregunta_01():
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
     #poly = ___.___(___)
-    poly = PolynomialFeatures(2)
+    poly = PolynomialFeatures(degree=2, interaction_only=False, include_bias=True)
 
     # Transforme la columna `x` del dataset `data` usando el objeto `poly`
     #x_poly = poly.___(data[["___"]])
-    x_poly = poly.fit_transform(data["x"])
+    data_numpy = data.to_numpy()
+    #data_numpy = data_numpy.reshape(1, -1)
+    x_poly = poly.fit_transform(data)
 
     # Retorne x y y
     return x_poly, data.y
